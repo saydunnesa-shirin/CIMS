@@ -11,12 +11,6 @@ namespace CIMS.API.Controllers
     [ApiController]
     public class MathController : ControllerBase
     {
-        /// <summary>
-        /// Add two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Addition")]
         public decimal Addition(decimal a, decimal b)
@@ -24,12 +18,6 @@ namespace CIMS.API.Controllers
             return a + b;
         }
 
-        /// <summary>
-        /// Subtract two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Subtraction")]
         public decimal Subtraction(decimal a, decimal b)
@@ -37,12 +25,6 @@ namespace CIMS.API.Controllers
             return a - b;
         }
 
-        /// <summary>
-        /// Multiply two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Multiplication")]
         public decimal Multiplication(decimal a, decimal b)
@@ -50,12 +32,6 @@ namespace CIMS.API.Controllers
             return a * b;
         }
 
-        /// <summary>
-        /// Devide two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Division")]
         public decimal Division(decimal a, decimal b)
