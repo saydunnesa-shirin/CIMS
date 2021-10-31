@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CIMS.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,56 +12,38 @@ namespace CIMS.API.Controllers
     [ApiController]
     public class MathController : ControllerBase
     {
-        /// <summary>
-        /// Add two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
+        private readonly IMathService _mathService;
+        public MathController(IMathService mathService)
+        {
+            _mathService = mathService;
+        }
         [HttpPost]
         [Route("Addition")]
         public decimal Addition(decimal a, decimal b)
         {
-            return a + b;
+            return _mathService.Addition(a, b);
         }
 
-        /// <summary>
-        /// Subtract two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Subtraction")]
         public decimal Subtraction(decimal a, decimal b)
         {
-            return a - b;
+            return _mathService.Subtraction(a, b);
         }
 
-        /// <summary>
-        /// Multiply two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Multiplication")]
-        public decimal Multiplication(decimal a, decimal b)
+        public IActionResult Multiplication(decimal a, decimal b)
         {
-            return a * b;
+            var result = _mathService.Multiplication(a, b);
+            return Ok(result);
         }
 
-        /// <summary>
-        /// Devide two numbers
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <returns></returns>
         [HttpPost]
         [Route("Division")]
         public decimal Division(decimal a, decimal b)
         {
-            return a / b;
+            return _mathService.Division(a, b);
         }
     }
 }

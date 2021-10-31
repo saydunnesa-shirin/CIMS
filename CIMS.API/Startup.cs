@@ -1,3 +1,4 @@
+using CIMS.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,8 @@ namespace CIMS.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CIMS.API", Version = "v1" });
             });
+
+            services.AddScoped<IMathService, MathService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
